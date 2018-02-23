@@ -1,0 +1,40 @@
+{
+	"name": "vprdex",
+	"version": "0.0.1",
+	"description": "NativeScript Application",
+	"license": "SEE LICENSE IN <your-license-filename>",
+	"readme": "NativeScript Application",
+	"repository": "<fill-your-repository-here>",
+	"nativescript": {
+		"id": "org.nativescript.VPRdex",
+		"tns-android": {
+			"version": "3.4.1"
+		}
+	},
+	"dependencies": {
+		"@angular/animations": "^5.2.6",
+		"@angular/common": "^5.2.6",
+		"@angular/compiler": "^5.2.6",
+		"@angular/core": "^5.2.6",
+		"@angular/forms": "^5.2.6",
+		"@angular/http": "^5.2.6",
+		"@angular/platform-browser": "^5.2.6",
+		"@angular/platform-browser-dynamic": "^5.2.6",
+		"@angular/router": "^5.2.6",
+		"nativescript-angular": "~5.2.0",
+		"nativescript-theme-core": "~1.0.4",
+		"reflect-metadata": "~0.1.8",
+		"rxjs": "~5.5.2",
+		"tns-core-modules": "^3.4.1",
+		"zone.js": "~0.8.2"
+	},
+	"devDependencies": {
+		"@angular/cli": "^1.7.1",
+		"babel-traverse": "6.4.5",
+		"babel-types": "6.4.5",
+		"babylon": "6.4.5",
+		"lazy": "1.0.11",
+		"nativescript-dev-typescript": "~0.6.0",
+		"typescript": "~2.6.2"
+	}
+}

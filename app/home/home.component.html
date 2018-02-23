@@ -1,0 +1,29 @@
+<Page>
+  <MainActionBar></MainActionBar>
+   <TabView>
+    <StackLayout *tabItem="{title: 'Home'}" class="m-5 welcome-image">
+      <ScrollView orientation="vertical">
+        <StackLayout>
+          <Label text= "Vernal Pools and Grassland Reserve Dex" class="m-t-5 h3 font-weight-bold text-center"></Label>
+          <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded p-l-15 p-r-15 p-t-15" ></Image>
+          <TextView text="The mission of the University of California Natural Reserve System is to contribute to the understanding and wise stewardship of the Earth and its natural systems by supporting university-level teaching, research, and public service at protected natural areas throughout California." editable="false" class="body"></TextView>
+        </StackLayout>
+      </ScrollView>
+    </StackLayout>
+
+    <StackLayout *tabItem="{title: 'Plants'}">
+      <catalog></catalog>
+    </StackLayout>
+
+    <StackLayout *tabItem="{title: 'Animals'}">
+    </StackLayout>
+
+    <StackLayout *tabItem="{title: 'Birds'}">
+    </StackLayout>
+
+    <StackLayout *tabItem="{title: 'Crustaceans'}">
+    </StackLayout>
+
+  </TabView>
+</Page>
+
