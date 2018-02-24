@@ -8,8 +8,11 @@ import { Router } from "@angular/router";
 })
 
 export class HomeComponent {
+  public currentdate: Date;
 
-  constructor (private router: Router) {
-    
+  constructor() {
+  }
+
+  ngOnInit() {
   }
 }

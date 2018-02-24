@@ -29,8 +29,7 @@
             "platform": "android",
             "appRoot": "${workspaceRoot}",
             "sourceMaps": true,
-            "watch": true,
-            "diagnosticLogging": true
+            "watch": true
         },
         {
             "name": "Attach on Android",
@@ -39,8 +38,7 @@
             "platform": "android",
             "appRoot": "${workspaceRoot}",
             "sourceMaps": true,
-            "watch": false,
-            "diagnosticLogging": true
+            "watch": true
         }
     ]
 }
