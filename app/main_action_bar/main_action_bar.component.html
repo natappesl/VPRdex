@@ -1,6 +1,17 @@
-  <ActionBar id="mainActionBar" class="font-weight-bold text-center action-bar">
-  <FlexboxLayout class="flex" >
-    <Label text="hello"></Label>
-    <Button class="btn btn-secondary fa" text="" (tap)="toggleSearch()"></Button>
-  </FlexboxLayout>
- </ActionBar>
+  <!-- <ActionBar id="mainActionBar" class="action-bar p-0">
+  <DockLayout class="action-bar-title m-0 p-0" stretchLastChild="true" style="width: 100%;">
+    <Label dock="left" text="UCM Naturalist App" class="h2 text-primary m-0 p-0"></Label>
+  </DockLayout>
+  <ActionItem ios.systemIcon="9" android.systemIcon="ic_menu_search" (tap)="toggleSearch()"></ActionItem>
+ </ActionBar> -->
+
+<ActionBar title="UCM Natty App" class="action-bar">
+  <!-- <NavigationButton text="" android.systemIcon="ic_menu_back"></NavigationButton> -->
+  <StackLayout orientation="horizontal"
+    ios:horizontalAlignment="center"
+    android:horizontalAlignment="left">
+    <Image src="res://logo" class="action-image"></Image>
+    <Label text=" UCM Natty App"  class="action-label"></Label>
+  </StackLayout>
+  <ActionItem ios.systemIcon="12" android.systemIcon="ic_menu_search" (tap)="toggleSearch()"></ActionItem>
+</ActionBar>

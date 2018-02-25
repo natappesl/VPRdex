@@ -10,6 +10,7 @@ export const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "home", component: HomeComponent },
     { path: "catalog", component: CatalogComponent },
+    { path: "catalog/:searchText", component: CatalogComponent },
 ];
 
 export const navigatableComponents = [

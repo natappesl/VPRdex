@@ -4,6 +4,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 
+import * as dockModule from "tns-core-modules/ui/layouts/dock-layout";
 import * as buttonModule from "tns-core-modules/ui/button";
 import * as tabViewModule from "tns-core-modules/ui/tab-view";
 import * as searchBarModule from "tns-core-modules/ui/search-bar";

@@ -1,10 +1,12 @@
-.flex {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
+
+.action-image {
+    width: 40;
+    height: 40;
+    vertical-align: center;
 }
 
-.fa {
-    font-family: 'FontAwesome';
+.action-label {
+    font-size: 24;
+    font-weight: bold;
+    vertical-align: center;
 }
- 
