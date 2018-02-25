@@ -3,7 +3,7 @@ import { Router, Event } from '@angular/router';
 import * as fs from "tns-core-modules/file-system";
 import { Page, NavigatedData } from 'tns-core-modules/ui/page';
 import { topmost, NavigationEntry } from "tns-core-modules/ui/frame";
-import * as Constants from '../constants';
+import * as Constants from '../../constants';
 
 @Component ({
   selector: 'catalog',
