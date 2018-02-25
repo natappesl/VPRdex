@@ -1,38 +1,24 @@
-import { Component } from '@angular/core';
-import { Router, Event } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import * as fs from "tns-core-modules/file-system";
-import { Page, NavigatedData } from 'tns-core-modules/ui/page';
-import { topmost, NavigationEntry } from "tns-core-modules/ui/frame";
 import * as Constants from '../../constants';
+import { SearchService } from '../../services/search.service';
+import { PageRoute } from "nativescript-angular/router";
+import "rxjs/add/operator/switchMap";
 
 @Component ({
-  selector: 'catalog',
-  templateUrl: 'catalog/catalog.component.html',
-  styleUrls: ['catalog/catalog.component.css']
+  selector: "catalog",
+  moduleId: module.id,
+  templateUrl: "./catalog.component.html",
+  styleUrls: ["./catalog.component.css"],
+  providers: [SearchService],
 })
 
 export class CatalogComponent {
   file: fs.File;
 
-  constructor (private router: Router, private page: Page) {
-  }
-
-  loadJSON(): void {
-    var currentApp = fs.knownFolders.currentApp();
-    var path = fs.path.join(Constants.SPECIES_FOLDER_PATH, "/Species.json");
-    try {
-      this.file = fs.File.fromPath(path);
-      console.log("loading " + path);
-      //console.log(this.file.readTextSync());
-    }
-    catch (error) {
-      console.error("Error loading species: " + error);
-    }
-  }
-
-  logJSON(): void {
-    if (this.file){
-      console.log(this.file.readTextSync());
-    }
+  constructor (private searchService: SearchService, private pageRoute: PageRoute) {
+    this.pageRoute.activatedRoute
+    .switchMap(activatedRoute => activatedRoute.params)
+    .subscribe((params) => { this.searchService.query = params['query']; });
   }
 }

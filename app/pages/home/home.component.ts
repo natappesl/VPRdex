@@ -3,8 +3,9 @@ import { Router } from "@angular/router";
 
 @Component ({
   selector: "home",
-  templateUrl: "home/home.component.html",
-  styleUrls: ["home/home.component.css"]
+  moduleId: module.id,
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 
 export class HomeComponent {

@@ -2,8 +2,7 @@
     <MainActionBar></MainActionBar>
     <ScrollView>
         <StackLayout >
-          <Button text="Load JSON" class="btn btn-primary" (tap)="loadJSON()"></Button>
-          <Label text="Print JSON to console" class="btn" (tap)="logJSON()"></Label>
+          <Label text="{{searchService.query}}"></Label>
         </StackLayout>
       </ScrollView>
 </Page>

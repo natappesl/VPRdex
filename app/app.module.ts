@@ -13,7 +13,6 @@ import { registerElement } from "nativescript-angular/element-registry";
 import { Observable, fromObject, fromObjectRecursive, PropertyChangeData, EventData, WrappedValue } from "tns-core-modules/data/observable";
 
 import { routes, navigatableComponents } from "./app.routing";
-import { isIOS } from "platform";
 
 declare var GMSServices: any;
 

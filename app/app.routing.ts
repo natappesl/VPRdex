@@ -7,10 +7,9 @@ import { CatalogComponent } from "./pages/catalog/catalog.component";
 import { MainActionBarComponent } from "./pages/main_action_bar/main_action_bar.component";
 
 export const routes: Routes = [
-    { path: "", redirectTo: "/home", pathMatch: "full" },
-    { path: "home", component: HomeComponent },
+    { path: "", component: HomeComponent },
     { path: "catalog", component: CatalogComponent },
-    { path: "catalog/:searchText", component: CatalogComponent },
+    { path: "catalog/:query", component: CatalogComponent },
 ];
 
 export const navigatableComponents = [
