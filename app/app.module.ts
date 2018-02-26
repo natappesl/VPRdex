@@ -8,6 +8,7 @@ import * as dockModule from "tns-core-modules/ui/layouts/dock-layout";
 import * as buttonModule from "tns-core-modules/ui/button";
 import * as tabViewModule from "tns-core-modules/ui/tab-view";
 import * as searchBarModule from "tns-core-modules/ui/search-bar";
+import * as segmentedBarModule from "tns-core-modules/ui/segmented-bar";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { registerElement } from "nativescript-angular/element-registry";
 import { Observable, fromObject, fromObjectRecursive, PropertyChangeData, EventData, WrappedValue } from "tns-core-modules/data/observable";

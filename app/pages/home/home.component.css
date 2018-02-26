@@ -11,8 +11,13 @@
     vertical-align: center;
 }
 
-.label .welcome-image {
+.welcome-image {
   display: flex;
   justify-content: center;
   width: 50vw;
+  height: 1vh;
+}
+
+.welcome-msg {
+    word-wrap: normal;
 }
