@@ -21,7 +21,6 @@ export class MainActionBarComponent {
       cancelButtonText: "Cancel",
       inputType: dialogs.inputType.text
   }).then(r => {
-      console.log("Search Dialog result: " + r.result + ", text: " + r.text);
       if (r.result == true) {
         this.routerExtensions.navigate(['/catalog', r.text] );
       }
