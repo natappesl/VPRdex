@@ -4,18 +4,27 @@ import { Routes } from "@angular/router";
 
 import { HomeComponent } from "./pages/home/home.component";
 import { CatalogComponent } from "./pages/catalog/catalog.component";
+import { AboutComponent } from "./pages/about/about.component";
 import { MainActionBarComponent } from "./pages/main_action_bar/main_action_bar.component";
+import { SearchPageComponent } from "./pages/search/search.component";
+import { SearchItemComponent } from "./pages/search.item/search.item.component";
 
 export const routes: Routes = [
-    { path: "", component: HomeComponent },
-    { path: "catalog", component: CatalogComponent },
-    { path: "catalog/:query", component: CatalogComponent },
+    { path: "", redirectTo: "/home/(aboutoutlet:about//catalogoutlet:catalog)", pathMatch: "full" },
+    { path: "home", component: HomeComponent, children: [
+        { path: "about", component: AboutComponent, outlet: "aboutoutlet" },
+        { path: "catalog", component: CatalogComponent, outlet: "catalogoutlet" },
+    ] },
+    { path: "search", component: SearchPageComponent },
 ];
 
 export const navigatableComponents = [
   HomeComponent,
+  AboutComponent,
   CatalogComponent,
-  MainActionBarComponent
+  MainActionBarComponent,
+  SearchPageComponent,
+  SearchItemComponent
 ];
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],

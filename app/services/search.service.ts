@@ -5,27 +5,39 @@ import * as Constants from '../constants';
 
 @Injectable ()
 export class SearchService {
-    query: string;
+    public lastQuery: string;
     file: fs.File;
     data: any;
+    public searchResults: Array<any>;
 
     constructor() {
-        let currentApp = fs.knownFolders.currentApp();
-        let path = fs.path.join(Constants.SPECIES_FOLDER_PATH, "/species.json");
+        let path = fs.path.join(Constants.SPECIES_FOLDER_PATH, "Species.json");
         try {
           this.file = fs.File.fromPath(path);
-          console.log("loading " + path);
-          console.log(this.file.readTextSync());
+          this.data = JSON.parse(this.file.readTextSync());
         }
         catch (error) {
-          console.error("Error loading species: " + error);
+          console.error("Error loading species data! Error: \n" + error);
         }
     }
 
+    showAll() {
+        this.searchResults = [];
+        if (this.data) {
+            this.data.forEach(element => {
+                    this.searchResults.push(element);
+            });
+        }
+    }
 
-
-    search (q: string) {
-        this.query = q;
-        //console.log (this.query);
+    search () {
+        this.searchResults = [];
+        if (this.data) {
+            this.data.forEach(element => {
+                if (element.Name.includes(this.lastQuery)) {
+                    this.searchResults.push(element);
+                }
+            });
+        }
     }
 }

@@ -1,31 +1,9 @@
-<Page>
-  <MainActionBar></MainActionBar>
-      <ScrollView orientation="vertical">
-        <StackLayout orientation="vertical">
-          <SegmentedBar [items]="segmentedBarTabs" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
-          <Label textAlignment="center" text="(Current tab: {{currentTab}})" class="text-muted"></Label>
-          <StackLayout class="hr-light"></StackLayout>
-          <Label text= "Vernal Pools and Grassland Reserve Dex" class="m-t-5 h3 font-weight-bold text-center"></Label>
-          <Label 
-            text="The mission of the University of California Natural Reserve System is to contribute to the understanding and wise stewardship of the Earth and its natural systems by supporting university-level teaching, research, and public service at protected natural areas throughout California." 
-            textWrap=true
-            textAlignment="center"
-            class="p-10 m-5"></Label>
-          <ScrollView orientation="horizontal">
-            <StackLayout orientation="horizontal">
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-              <Image src="res://welcome_splash" stretch="aspectFit" class="img-rounded m-5" width="33.33%"></Image>
-            </StackLayout>
-          </ScrollView>
-        </StackLayout>
-      </ScrollView>
-</Page>
-
+<MainActionBar></MainActionBar>
+<TabView class="tab-view">
+  <StackLayout *tabItem="{title: 'About'}">
+    <router-outlet name="aboutoutlet"></router-outlet>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Catalog'}">
+    <router-outlet name="catalogoutlet"></router-outlet>
+  </StackLayout>
+</TabView>

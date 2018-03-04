@@ -29,7 +29,10 @@
             "platform": "android",
             "appRoot": "${workspaceRoot}",
             "sourceMaps": true,
-            "watch": true
+            "watch": true,
+            // "tnsArgs": [
+            //     "--clean"
+            // ]
         },
         {
             "name": "Attach on Android",

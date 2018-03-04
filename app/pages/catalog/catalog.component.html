@@ -1,8 +1,10 @@
 <Page>
     <MainActionBar></MainActionBar>
-    <ScrollView>
-        <StackLayout >
-          <Label text="{{searchService.query}}"></Label>
+        <StackLayout>
+            <ListView [items]="searchService.searchResults" (itemTap)="onItemTap($event)">
+                <ng-template let-item="item">
+                    <SearchItem [data]="item"></SearchItem>
+                </ng-template>
+            </ListView>
         </StackLayout>
-      </ScrollView>
 </Page>
