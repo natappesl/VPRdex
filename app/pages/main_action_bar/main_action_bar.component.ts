@@ -13,7 +13,7 @@ import * as dialogs from "ui/dialogs";
 export class MainActionBarComponent {
   constructor (private routerExtensions: RouterExtensions) {
   }
-  
+
   toggleSearch(): void {
     dialogs.prompt({
       title: "Search",
@@ -22,7 +22,7 @@ export class MainActionBarComponent {
       inputType: dialogs.inputType.text
   }).then(r => {
       if (r.result == true) {
-        this.routerExtensions.navigate(['/catalog', r.text] );
+        this.routerExtensions.navigate(['/search', r.text] );
       }
 
   });

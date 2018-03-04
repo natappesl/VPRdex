@@ -1,3 +1,16 @@
-<Label class="h2" text="{{ data.Name }}">
-  <!-- TODO: Implement search item template  -->
-</Label>
+<GridLayout rows="*" columns="50, *" width="100%" height="50">
+    <Image visibility="{{ data.Image ? 'visible':'collapse' }}"
+    row="0" col="0" class="thumb-image"
+    src="{{ data.Image }}" stretch="aspectFit">
+    </Image>
+
+    <Label visibility="{{ data.Image ? 'collapse':'visible' }}"
+    row="0" col="0" text="No image" textAlignment="center"
+    backgroundColor="gray">
+    </Label>
+
+    <StackLayout row="0" col="1" orientation="vertical" width="auto">
+      <Label class="h3 common-name" text="{{data.Name}}"></Label>
+      <Label class="footnote scientific-name" text="{{data.Scientific_Name}}"></Label>
+    </StackLayout>
+  </GridLayout>

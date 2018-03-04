@@ -6,7 +6,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { CatalogComponent } from "./pages/catalog/catalog.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { MainActionBarComponent } from "./pages/main_action_bar/main_action_bar.component";
-import { SearchPageComponent } from "./pages/search/search.component";
+import { SearchPageComponent } from "./pages/search.page/search.page.component";
 import { SearchItemComponent } from "./pages/search.item/search.item.component";
 
 export const routes: Routes = [
@@ -16,6 +16,7 @@ export const routes: Routes = [
         { path: "catalog", component: CatalogComponent, outlet: "catalogoutlet" },
     ] },
     { path: "search", component: SearchPageComponent },
+    { path: "search/:query", component: SearchPageComponent },
 ];
 
 export const navigatableComponents = [

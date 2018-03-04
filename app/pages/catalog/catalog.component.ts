@@ -16,12 +16,9 @@ import "rxjs/add/operator/switchMap";
 
 export class CatalogComponent {
   constructor (private searchService: SearchService, private pageRoute: PageRoute) {
-    this.pageRoute.activatedRoute
-    .switchMap(activatedRoute => activatedRoute.params)
-    .subscribe((params) => { this.searchService.lastQuery = params['query']; });
   }
 
   ngOnInit () {
-    this.searchService.showAll();
+    this.searchService.search();
   }
 }

@@ -1,0 +1,14 @@
+.common-name {
+  width: auto;
+  text-transform: capitalize;
+  margin-bottom: 0px;
+}
+
+.scientific-name {
+  text-transform: lowercase;
+  font-style: italic;
+}
+
+.thumb-image {
+  margin: 20px;
+}

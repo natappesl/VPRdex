@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from "../../services/search.service";
 
 @Component({
-	selector: 'search',
+	selector: 'searchPage',
 	moduleId: module.id,
-	templateUrl: './search.component.html',
-	styleUrls: ['./search.component.css']
+	templateUrl: './search.page.component.html',
+	styleUrls: ['./search.page.component.css'],
+	providers: [SearchService],
 })
 
 export class SearchPageComponent implements OnInit {
