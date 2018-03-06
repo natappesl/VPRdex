@@ -23,22 +23,10 @@ export class SearchService {
         catch (error) {
           console.error("Error loading species data! Error: \n" + error);
         }
-
-        this.pageRoute.activatedRoute
-        .switchMap(activatedRoute => activatedRoute.params)
-        .subscribe((params) => { this.lastQuery = params['query']; });
     }
 
-    showAll() {
-        this.searchResults = new ObservableArray();
-        if (this.data) {
-            this.data.forEach(element => {
-                    this.searchResults.push(element);
-            });
-        }
-    }
-
-    search () {
+    search(query?: string) {
+        this.lastQuery = query;
         this.searchResults = new ObservableArray();
         if (this.data) {
             this.data.forEach(element => {
