@@ -1,17 +1,21 @@
-  <!-- <ActionBar id="mainActionBar" class="action-bar p-0">
-  <DockLayout class="action-bar-title m-0 p-0" stretchLastChild="true" style="width: 100%;">
-    <Label dock="left" text="UCM Naturalist App" class="h2 text-primary m-0 p-0"></Label>
-  </DockLayout>
-  <ActionItem ios.systemIcon="9" android.systemIcon="ic_menu_search" (tap)="toggleSearch()"></ActionItem>
- </ActionBar> -->
+<ActionBar title="UCM Natty App" class="action-bar" loaded="onLoaded">
+  <GridLayout columns="6*, *">
 
-<ActionBar title="UCM Natty App" class="action-bar">
-  <!-- <NavigationButton text="" android.systemIcon="ic_menu_back"></NavigationButton> -->
-  <StackLayout orientation="horizontal"
-    ios:horizontalAlignment="center"
-    android:horizontalAlignment="left">
-    <Image src="res://logo" class="action-image"></Image>
-    <Label text=" UCM Natty App"  class="action-label"></Label>
-  </StackLayout>
-  <ActionItem ios.systemIcon="12" android.systemIcon="ic_menu_search" (tap)="toggleSearch()"></ActionItem>
+    <GridLayout col="0" columns="auto, *" [visibility]="showSearch ? 'hidden' : 'visible'">
+        <Image col="0" src="res://logo" class="action-image"></Image>
+        <Label col="1" text=" Natty Da App" class="action-label"></Label>
+    </GridLayout>
+
+    <GridLayout col="0" [visibility]="showSearch ? 'visible' : 'hidden'">
+        <TextField
+        #searchBar
+        hint="Search..."
+        returnKeyType="done"
+        (returnPress)="toggleSearch($event)"
+        (focus)="clearSearch($event)"></TextField>
+    </GridLayout>
+
+    <Button col="1" text="&#xf002;" class="fa search-btn" (tap)="toggleSearch($event)"></Button>
+
+  </GridLayout>
 </ActionBar>

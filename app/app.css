@@ -12,8 +12,6 @@ refer to http://docs.nativescript.org/ui/theme.
 /* @import '~nativescript-theme-core/css/core.light.css'; */
 
 @import '~nativescript-theme-core/css/brown.css';
+@import '~font-awesome/css/font-awesome.css';
 
-.fa {
-    font-family: FontAwesome;
-}
 

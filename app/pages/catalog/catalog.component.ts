@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { SearchService } from '../../services/search.service';
+import { SearchResult, SearchService } from '../../services/search.service';
 import { PageRoute } from "nativescript-angular/router";
 import "rxjs/add/operator/switchMap";
 

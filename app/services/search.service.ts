@@ -1,19 +1,27 @@
-import { Injectable } from '@angular/core';
-import { ObservableArray, ChangedData, ChangeType } from "tns-core-modules/data/observable-array";
+import { Injectable } from "@angular/core";
+//import { Http, Headers, Response, URLSearchParams } from "@angular/http";
 import * as fs from "tns-core-modules/file-system";
 import * as Constants from '../constants';
 import { PageRoute } from "nativescript-angular/router";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/catch";
+import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
 //-------------------------
 // TODO: Implement Fuse.js!
 //-------------------------
+
+export class SearchResult {
+    constructor(public id: string, public name: string, image: string) {}
+  }
 
 @Injectable ()
 export class SearchService {
     public lastQuery: string;
     file: fs.File;
     data: any;
-    public searchResults = new ObservableArray();
+    public searchResults: Array<SearchResult> = [];
+
     constructor(private pageRoute: PageRoute) {
         let path = fs.path.join(Constants.SPECIES_FOLDER_PATH, "Species.json");
         try {
@@ -27,11 +35,11 @@ export class SearchService {
 
     search(query?: string) {
         this.lastQuery = query;
-        this.searchResults = new ObservableArray();
+        this.searchResults = [];
         if (this.data) {
             this.data.forEach(element => {
                 if (element.Name.includes(this.lastQuery)) {
-                    this.searchResults.push(element);
+                    this.searchResults.push(new SearchResult(element.Id, element.Name, element.Image));
                 }
             });
         }

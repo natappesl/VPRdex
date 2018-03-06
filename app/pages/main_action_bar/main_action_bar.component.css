@@ -10,3 +10,9 @@
     font-weight: bold;
     vertical-align: center;
 }
+
+.search-btn {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1;
+}
