@@ -23,6 +23,7 @@ export class SearchService {
     public searchResults: Array<SearchResult> = [];
 
     constructor(private pageRoute: PageRoute) {
+        // Ask database for updates, populate the files & json folder
         let path = fs.path.join(Constants.SPECIES_FOLDER_PATH, "Species.json");
         try {
           this.file = fs.File.fromPath(path);
