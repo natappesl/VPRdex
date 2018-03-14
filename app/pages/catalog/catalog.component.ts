@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { SearchResult, SearchService } from '../../services/search.service';
+import { SearchService } from '../../services/search.service';
+import { SpeciesModel } from "../../models/species.model";
 import { Page } from "tns-core-modules/ui/page";
 import { Subject } from 'rxjs/Subject';
 import { Observable } from "rxjs/Observable";
@@ -20,7 +21,7 @@ import * as listView from "tns-core-modules/ui/list-view";
 
 export class CatalogComponent {
   list: listView.ListView;
-  results$: Observable<Array<SearchResult>>;
+  results$: Observable<Array<SpeciesModel>>;
 
   constructor(private _searchService: SearchService, private _page: Page) {
 
@@ -29,5 +30,6 @@ export class CatalogComponent {
   ngOnInit() {
     this.list = <listView.ListView>this._page.getViewById('list');
     this.results$ = this._searchService.search();
+    //this._searchService.subscribe();?
   }
 }

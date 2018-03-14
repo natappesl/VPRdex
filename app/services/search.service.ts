@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Headers, Response, URLSearchParams } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { BehaviorSubject } from "rxjs//BehaviorSubject";
+import { SpeciesModel } from "../models/species.model";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/map";
 
@@ -13,20 +14,15 @@ import * as Constants from '../constants';
 // TODO: Implement Fuse.js!
 //-------------------------
 
-export class SearchResult {
-    constructor(public id?: string, public name?: string, public image?: string) {
-    }
-  }
-
 @Injectable ()
 export class SearchService {
     private _lastQuery: string;
     private _file: fs.File;
     private _jsonData;
-    private _searchResults: BehaviorSubject<Array<SearchResult>> = new BehaviorSubject(Array());
+    private _searchResults: BehaviorSubject<Array<SpeciesModel>> = new BehaviorSubject(Array());
 
     public readonly lastQuery: string = this._lastQuery;
-    public readonly searchResults: Observable<Array<SearchResult>> = this._searchResults.asObservable();
+    public readonly searchResults: Observable<Array<SpeciesModel>> = this._searchResults.asObservable();
 
     constructor() {
         // Ask database for updates, populate the files & json folder
@@ -42,14 +38,14 @@ export class SearchService {
         this.search();
     }
 
-    search(query?: string): Observable<Array<SearchResult>> {
+    search(query?: string): Observable<Array<SpeciesModel>> {
         this._lastQuery = query || "";
         let sr = [];
 
         if (this._jsonData) {
             this._jsonData.forEach(element => {
                 if (element.Name.includes(this._lastQuery)) {
-                    sr.push(new SearchResult(element.Id, element.Name, element.Image));
+                    sr.push(new SpeciesModel(element.Id, element.Name, element.Image));
                 }
             });
         }

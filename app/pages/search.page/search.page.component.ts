@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService, SearchResult } from "../../services/search.service";
+import { SearchService } from "../../services/search.service";
+import { SpeciesModel } from "../../models/species.model";
 import { Page } from "tns-core-modules/ui/page";
 
 @Component({
@@ -12,7 +13,7 @@ import { Page } from "tns-core-modules/ui/page";
 
 export class SearchPageComponent implements OnInit {
 	query: string;
-	searchResults: Array<SearchResult>;
+	searchResults: Array<SpeciesModel>;
 
 	constructor(private searchService: SearchService, private page: Page) { }
 

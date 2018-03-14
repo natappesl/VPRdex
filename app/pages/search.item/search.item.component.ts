@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { SearchResult } from '../../services/search.service';
+import { SpeciesModel } from "../../models/species.model";
 import { Observable, fromObject, fromObjectRecursive, PropertyChangeData, EventData, WrappedValue } from "tns-core-modules/data/observable";
 
 @Component({
@@ -10,7 +10,7 @@ import { Observable, fromObject, fromObjectRecursive, PropertyChangeData, EventD
 })
 
 export class SearchItemComponent extends Observable implements OnInit {
-	@Input() data: SearchResult;
+	@Input() data: SpeciesModel;
 
 	constructor() {
 		super();
