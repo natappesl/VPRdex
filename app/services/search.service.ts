@@ -29,6 +29,7 @@ export class SearchService {
     public readonly searchResults: Observable<Array<SearchResult>> = this._searchResults.asObservable();
 
     constructor() {
+        // Ask database for updates, populate the files & json folder
         let path = fs.path.join(Constants.SPECIES_FOLDER_PATH, "Species.json");
         try {
           this._file = fs.File.fromPath(path);
