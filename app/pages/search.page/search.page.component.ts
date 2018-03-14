@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from "../../services/search.service";
+import { SearchService, SearchResult } from "../../services/search.service";
+import { Page } from "tns-core-modules/ui/page";
 
 @Component({
 	selector: 'searchPage',
@@ -10,10 +11,11 @@ import { SearchService } from "../../services/search.service";
 })
 
 export class SearchPageComponent implements OnInit {
+	query: string;
+	searchResults: Array<SearchResult>;
 
-	constructor(private searchService: SearchService) { }
+	constructor(private searchService: SearchService, private page: Page) { }
 
 	ngOnInit() {
-		this.searchService.search();
 	}
 }

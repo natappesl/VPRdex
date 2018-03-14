@@ -1,12 +1,12 @@
-<ActionBar title="UCM Natty App" class="action-bar" loaded="onLoaded">
+<ActionBar title="Puff McNatty" class="action-bar" loaded="onLoaded">
   <GridLayout columns="6*, *">
 
-    <GridLayout col="0" columns="auto, *" [visibility]="showSearch ? 'hidden' : 'visible'">
+    <GridLayout col="0" columns="auto, *" *ngIf="!showSearch">
         <Image col="0" src="res://logo" class="action-image"></Image>
-        <Label col="1" text=" Natty Da App" class="action-label"></Label>
+        <Label col="1" text="Puff McNatty" class="action-label"></Label>
     </GridLayout>
 
-    <GridLayout col="0" [visibility]="showSearch ? 'visible' : 'hidden'">
+    <GridLayout col="0" *ngIf="showSearch">
         <TextField
         #searchBar
         hint="Search..."

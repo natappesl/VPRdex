@@ -1,7 +1,13 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SearchResult, SearchService } from '../../services/search.service';
-import { PageRoute } from "nativescript-angular/router";
-import "rxjs/add/operator/switchMap";
+import { Page } from "tns-core-modules/ui/page";
+import { Subject } from 'rxjs/Subject';
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/catch";
+import "rxjs/add/operator/map";
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/observable/of';
+import * as listView from "tns-core-modules/ui/list-view";
 
 @Component ({
   selector: "catalog",
@@ -12,13 +18,16 @@ import "rxjs/add/operator/switchMap";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-// TODO: Make searchservice private
-
 export class CatalogComponent {
-  constructor (private searchService: SearchService, private pageRoute: PageRoute) {
+  list: listView.ListView;
+  results$: Observable<Array<SearchResult>>;
+
+  constructor(private _searchService: SearchService, private _page: Page) {
+
   }
 
-  ngOnInit () {
-    this.searchService.search();
+  ngOnInit() {
+    this.list = <listView.ListView>this._page.getViewById('list');
+    this.results$ = this._searchService.search();
   }
 }

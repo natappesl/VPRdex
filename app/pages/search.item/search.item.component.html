@@ -1,16 +1,16 @@
-<GridLayout rows="*" columns="50, *" width="100%" height="50">
-    <Image visibility="{{ data.Image ? 'visible':'collapse' }}"
+<GridLayout rows="*" columns="50, *" width="100%" height="50" (tap)="onTap($event)">
+    <Image *ngIf="data.image"
     row="0" col="0" class="thumb-image"
-    src="{{ data.Image }}" stretch="aspectFit">
+    (src)="data.image" stretch="aspectFit">
     </Image>
 
-    <Label visibility="{{ data.Image ? 'collapse':'visible' }}"
+    <Label *ngIf="!data.image"
     row="0" col="0" text="No image" textAlignment="center"
     backgroundColor="gray">
     </Label>
 
     <StackLayout row="0" col="1" orientation="vertical" width="auto">
-      <Label class="h3 common-name" text="{{data.Name}}"></Label>
-      <Label class="footnote scientific-name" text="{{data.Scientific_Name}}"></Label>
+      <Label class="h3 common-name" text="{{data.name}}"></Label>
+      <Label class="footnote scientific-name" [text]="data.name"></Label>
     </StackLayout>
   </GridLayout>

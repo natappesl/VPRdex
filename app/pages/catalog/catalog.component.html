@@ -1,10 +1,12 @@
-<Page>
-    <MainActionBar></MainActionBar>
-        <StackLayout>
-            <ListView [items]="searchService.searchResults" (itemTap)="onItemTap($event)">
-                <ng-template let-item="item">
-                    <SearchItem [data]="item"></SearchItem>
-                </ng-template>
-            </ListView>
-        </StackLayout>
-</Page>
+<StackLayout>
+    <ListView id="list" [items]="results$ | async" (itemTap)="onItemTap($event)">
+        <ng-template let-item="item">
+            <SearchItem [data]="item"></SearchItem>
+        </ng-template>
+    </ListView>
+
+    <ng-template #loading>
+        <Label text="Loading...">
+        </Label>
+    </ng-template>
+</StackLayout>
