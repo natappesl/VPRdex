@@ -30,6 +30,5 @@ export class CatalogComponent {
   ngOnInit() {
     this.list = <listView.ListView>this._page.getViewById('list');
     this.results$ = this._searchService.search();
-    //this._searchService.subscribe();?
   }
 }

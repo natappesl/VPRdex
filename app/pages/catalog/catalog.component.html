@@ -1,7 +1,7 @@
 <StackLayout>
     <ListView id="list" [items]="results$ | async" (itemTap)="onItemTap($event)">
         <ng-template let-item="item">
-            <SearchItem [data]="item"></SearchItem>
+            <SearchDetail [data]="item"></SearchDetail>
         </ng-template>
     </ListView>
 
