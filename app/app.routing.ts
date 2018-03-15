@@ -7,7 +7,7 @@ import { CatalogComponent } from "./pages/catalog/catalog.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { MainActionBarComponent } from "./pages/main_action_bar/main_action_bar.component";
 import { SearchPageComponent } from "./pages/search.page/search.page.component";
-import { SearchItemComponent } from "./pages/search.item/search.item.component";
+import { SearchDetailComponent } from "./pages/search.detail/search.detail";
 
 export const routes: Routes = [
     { path: "", redirectTo: "/home/(aboutoutlet:about//catalogoutlet:catalog)", pathMatch: "full" },
@@ -25,7 +25,7 @@ export const navigatableComponents = [
   CatalogComponent,
   MainActionBarComponent,
   SearchPageComponent,
-  SearchItemComponent
+  SearchDetailComponent
 ];
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],

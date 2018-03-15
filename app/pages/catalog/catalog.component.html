@@ -1,5 +1,5 @@
 <StackLayout>
-    <ListView id="list" [items]="results$ | async" (itemTap)="onItemTap($event)">
+    <ListView id="list" [items]="results" (itemTap)="onItemTap($event)">
         <ng-template let-item="item">
             <SearchDetail [data]="item"></SearchDetail>
         </ng-template>

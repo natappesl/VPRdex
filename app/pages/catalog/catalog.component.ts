@@ -22,13 +22,21 @@ import * as listView from "tns-core-modules/ui/list-view";
 export class CatalogComponent {
   list: listView.ListView;
   results$: Observable<Array<SpeciesModel>>;
-
+  results: Array<SpeciesModel>;
   constructor(private _searchService: SearchService, private _page: Page) {
 
   }
 
   ngOnInit() {
     this.list = <listView.ListView>this._page.getViewById('list');
-    this.results$ = this._searchService.search();
+    this._searchService.searchResults.subscribe(
+      val => {
+        this.results = val;
+      }
+    );
+  }
+
+  onItemTap() {
+    this.list.refresh();
   }
 }

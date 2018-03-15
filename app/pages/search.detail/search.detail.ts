@@ -9,7 +9,7 @@ import { Observable, fromObject, fromObjectRecursive, PropertyChangeData, EventD
 	styleUrls: ['./search.item.component.css']
 })
 
-export class SearchItemComponent extends Observable implements OnInit {
+export class SearchDetailComponent extends Observable implements OnInit {
 	@Input() data: SpeciesModel;
 
 	constructor() {
