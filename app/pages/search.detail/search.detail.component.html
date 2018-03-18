@@ -1,0 +1,16 @@
+<GridLayout rows="*" columns="50, *" width="100%" height="50" (tap)="onTap($event)" >
+    <Image *ngIf="speciesModel.image"
+    row="0" col="0" class="thumb-image"
+    [src]="speciesModel.image" stretch="aspectFit">
+    </Image>
+
+    <Label *ngIf="!speciesModel.image"
+    row="0" col="0" text="No image" textAlignment="center"
+    backgroundColor="gray">
+    </Label>
+
+    <StackLayout row="0" col="1" orientation="vertical" width="auto">
+      <Label class="h3 common-name" [text]="speciesModel.name"></Label>
+      <Label class="footnote scientific-name" *ngIf="speciesModel.scientific_name" [text]="speciesModel.scientific_name"></Label>
+    </StackLayout>
+  </GridLayout>

@@ -7,7 +7,7 @@ import { Route } from '@angular/router';
 import "rxjs/add/operator/switchMap";
 
 @Component({
-	selector: 'searchPage',
+	selector: 'search-page',
 	moduleId: module.id,
 	templateUrl: './search.page.component.html',
 	styleUrls: [
@@ -18,7 +18,7 @@ import "rxjs/add/operator/switchMap";
 export class SearchPageComponent implements OnInit {
 	private _query: string;
 	private _searchResults: SpeciesModel[];
-	
+
 	constructor(private _searchService: SearchService, private _page: Page, private _pageRoute: PageRoute) {
 		this._pageRoute.activatedRoute
 			.switchMap(activatedRoute => activatedRoute.queryParams)

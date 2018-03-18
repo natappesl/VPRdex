@@ -4,10 +4,9 @@ import { NavigationStart, NavigationEnd, ActivatedRoute } from "@angular/router"
 import { RouterExtensions } from 'nativescript-angular/router';
 import { TextField } from "ui/text-field";
 import { SearchService } from "../../services/search.service";
-import * as dialogs from "ui/dialogs";
 
 @Component ({
-  selector: 'MainActionBar',
+  selector: 'main-action-bar',
   moduleId: module.id,
   templateUrl: './main_action_bar.component.html',
   styleUrls: ['./main_action_bar.component.css']
