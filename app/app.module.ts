@@ -3,6 +3,7 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
+import { SearchService } from "./services/search.service";
 
 import * as dockModule from "tns-core-modules/ui/layouts/dock-layout";
 import * as buttonModule from "tns-core-modules/ui/button";
@@ -10,7 +11,6 @@ import * as tabViewModule from "tns-core-modules/ui/tab-view";
 import * as searchBarModule from "tns-core-modules/ui/search-bar";
 import * as segmentedBarModule from "tns-core-modules/ui/segmented-bar";
 import * as Constants from './constants';
-import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { registerElement } from "nativescript-angular/element-registry";
 import { routes, navigatableComponents } from "./app.routing";
 import { Observable } from "rxjs/Observable";
@@ -38,9 +38,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
         AppComponent,
         ...navigatableComponents
     ],
-    providers: [
-        ModalDialogService
-    ],
+    providers: [SearchService],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

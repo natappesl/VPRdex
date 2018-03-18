@@ -10,14 +10,13 @@ import * as dialogs from "ui/dialogs";
   selector: 'MainActionBar',
   moduleId: module.id,
   templateUrl: './main_action_bar.component.html',
-  styleUrls: ['./main_action_bar.component.css'],
-  providers: [SearchService],
+  styleUrls: ['./main_action_bar.component.css']
 })
 
 export class MainActionBarComponent implements AfterViewInit {
   public showSearch: boolean = false;
 
-  constructor(private searchService: SearchService, private routerExtensions: RouterExtensions) {
+  constructor(public _searchService: SearchService, private _routerExtensions: RouterExtensions) {
   }
 
   ngOnInit() {
@@ -33,7 +32,9 @@ export class MainActionBarComponent implements AfterViewInit {
 
     let searchBar = <TextField> event.object;
     if (this.showSearch) {
-      this.searchService.search(searchBar.text);
+      //this._searchService.search(searchBar.text);
+      this._routerExtensions.navigate(["/search"], { queryParams: {query: searchBar.text}})
+
     }
 
     this.showSearch = !this.showSearch;

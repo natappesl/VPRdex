@@ -5,8 +5,8 @@ import { Observable, fromObject, fromObjectRecursive, PropertyChangeData, EventD
 @Component({
 	selector: 'SearchDetail',
 	moduleId: module.id,
-	templateUrl: './search.item.component.html',
-	styleUrls: ['./search.item.component.css']
+	templateUrl: './search.detail.html',
+	styleUrls: ['./search.detail.css']
 })
 
 export class SearchDetailComponent extends Observable implements OnInit {

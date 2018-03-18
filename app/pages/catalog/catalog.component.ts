@@ -9,34 +9,29 @@ import "rxjs/add/operator/map";
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
 import * as listView from "tns-core-modules/ui/list-view";
+import { Subscriber } from 'rxjs/Subscriber';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component ({
   selector: "catalog",
   moduleId: module.id,
   templateUrl: "./catalog.component.html",
   styleUrls: ["./catalog.component.css"],
-  providers: [SearchService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class CatalogComponent {
   list: listView.ListView;
-  results$: Observable<Array<SpeciesModel>>;
-  results: Array<SpeciesModel>;
-  constructor(private _searchService: SearchService, private _page: Page) {
-
+  results$: Observable<SpeciesModel[]>;
+  results: SpeciesModel[];
+  constructor(public _searchService: SearchService, private _page: Page) {
   }
 
   ngOnInit() {
-    this.list = <listView.ListView>this._page.getViewById('list');
-    this._searchService.searchResults.subscribe(
-      val => {
-        this.results = val;
-      }
-    );
+    this.list = this._page.getViewById('list');
+    this.results$ = this._searchService.searchResults.asObservable();
   }
 
   onItemTap() {
-    this.list.refresh();
   }
 }
