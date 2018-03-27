@@ -31,9 +31,9 @@
             "appRoot": "${workspaceRoot}",
             "sourceMaps": true,
             "watch": true,
-            "tnsArgs": [
-                "--clean"
-            ]
+            // "tnsArgs": [
+            //     "--clean"
+            // ]
         },
         {
             "name": "Attach on Android",

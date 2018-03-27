@@ -1,21 +1,21 @@
-<ActionBar title="Puff McNatty" class="action-bar" loaded="onLoaded">
-  <GridLayout columns="6*, *">
+<ActionBar class="action-bar" loaded="onLoaded">
+  <GridLayout width="100%" columns="6*, *">
 
     <GridLayout col="0" columns="auto, *" *ngIf="!showSearch">
-        <Image col="0" src="res://logo" class="action-image"></Image>
-        <Label col="1" text=" UCM Naturalist App" class="action-label"></Label>
+        <Image col="0" src="res://logo" class="action-image" marginRight="5%"></Image>
+        <Label id="action-bar-title" col="1" text="UCM Naturalist App" class="action-label"></Label>
     </GridLayout>
 
     <GridLayout col="0" *ngIf="showSearch">
         <TextField
-        #searchBar
+        id="main-search-bar"
         hint="Search..."
         returnKeyType="done"
         (returnPress)="toggleSearch($event)"
         (focus)="clearSearch($event)"></TextField>
     </GridLayout>
 
-    <Button col="1" text="&#xf002;" class="fa search-btn" (tap)="toggleSearch($event)"></Button>
+    <Button col="1" text="&#xf002;" class="fa search-btn action-item" (tap)="toggleSearch($event)"></Button>
 
   </GridLayout>
 </ActionBar>

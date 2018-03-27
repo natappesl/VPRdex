@@ -5,7 +5,7 @@
 }
 
 .action-label {
-    color: #3C5AFD;
+    color: #795548;
     font-size: 24;
     font-weight: bold;
     vertical-align: center;
@@ -20,4 +20,8 @@
 
 .welcome-msg {
     word-wrap: normal;
+}
+TabView {
+    border-color: transparent;
+    border-width: 0px;
 }

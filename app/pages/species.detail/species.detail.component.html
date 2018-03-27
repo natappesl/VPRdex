@@ -1,7 +1,24 @@
-<main-action-bar></main-action-bar>
+<!-- <main-action-bar [customTitle]="_formattedTitle"></main-action-bar> -->
 <ScrollView orientation="vertical">
   <StackLayout orientation="vertical">
-    <Label *ngIf="_speciesModel.name" [text]="_speciesModel.name"></Label>
+  <DockLayout class="species-detail-title-layout" backgroundColor="#795548" stretchLastChild="true">
+    <Label class="species-detail-title" color="#ffffff" dock="right" text="&#xf00d;" class="fa" margin="5" (tap)="_routerExtensions.back()"></Label>
+    <Label textAlignment="center" class="species-detail-title h1" color="#ffffff" dock="left" marginLeft="40" marginRight="20" [text]="_formattedTitle" class="action-label"></Label>
+  </DockLayout>
+
+  <Label class="hr-dark"></Label>
+
+  <GridLayout horizontalAlignment="center" width="40%" rows="*,*" columns="*, *, *, *, *" >
+    <Label text="&#xf002;" textAlignment="center" row="1" col="0" color="yellow" class="fa"></Label>
+    <Label text="&#xf002;" textAlignment="center" row="1" col="1" class="fa" ></Label>
+    <Label text="&#xf002;" textAlignment="center" row="1" col="2" class="fa" ></Label>
+    <Label text="&#xf002;" textAlignment="center" row="1" col="3" class="fa" ></Label>
+    <Label text="&#xf002;" textAlignment="center" row="1" col="4" class="fa" ></Label>
+    <Label col="0" row="0" colSpan="5" textAlignment="center" text="Endangerment Level:"></Label>
+  </GridLayout>
+
+    <Label class="hr-dark"></Label>
+
     <label *ngIf="_speciesModel.scientific_name" [text]="_speciesModel.scientific_name"></label>
   </StackLayout>
 </ScrollView>

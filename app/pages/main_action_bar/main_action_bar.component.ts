@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
 import { Page, ShownModallyData, NavigatedData } from "tns-core-modules/ui/page";
 import { NavigationStart, NavigationEnd, ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from 'nativescript-angular/router';
 import { TextField } from "ui/text-field";
+import { Label } from "ui/label";
 import { SearchService } from "../../services/search.service";
+import { TabView } from "ui/tab-view";
 
 @Component ({
   selector: 'main-action-bar',
@@ -13,9 +15,10 @@ import { SearchService } from "../../services/search.service";
 })
 
 export class MainActionBarComponent implements AfterViewInit {
-  public showSearch: boolean = false;
+  showSearch: boolean = false;
+  @Input() customTitle: string;
 
-  constructor(public _searchService: SearchService, private _routerExtensions: RouterExtensions) {
+  constructor(public _searchService: SearchService, private _routerExtensions: RouterExtensions, private _page: Page) {
   }
 
   ngOnInit() {
@@ -23,19 +26,21 @@ export class MainActionBarComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    if (this.customTitle) {
+      let titleView = <Label>this._page.getViewById("action-bar-title");
+      titleView.text = this.customTitle;
+    }
   }
 
   toggleSearch(event): void {
-    // Perform search logic before switching flag,
-    // as searchBar is undefined when !showSearch
-
-    let searchBar = <TextField> event.object;
-    if (this.showSearch) {
-      //this._searchService.search(searchBar.text);
-      this._routerExtensions.navigate(["/search"], { queryParams: {query: searchBar.text}})
-
+    // searchBar is undefined when !showSearch
+    let searchBar = <TextField> this._page.getViewById("main-search-bar");
+    if (searchBar) {
+      this._searchService.search(searchBar.text);
+      let homeTabView = <TabView> this._page.getViewById('home-tab-view');
+      if (homeTabView) homeTabView.selectedIndex = 1;
+      else this._routerExtensions.navigate(['home', { outlets: { catalogoutlet: 'catalog', aboutoutlet: 'about' } }], { queryParams: { jumpToCatalog: true } });
     }
-
     this.showSearch = !this.showSearch;
   }
 

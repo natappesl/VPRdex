@@ -1,5 +1,5 @@
 <StackLayout>
-    <ListView id="list" [items]="results$ | async">
+    <ListView id="list" class="list-group" [items]="results$ | async">
         <ng-template let-item="item">
             <search-detail [speciesModel]="item"></search-detail>
         </ng-template>
