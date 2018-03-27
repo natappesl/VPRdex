@@ -2,11 +2,9 @@
 <ScrollView orientation="vertical">
   <StackLayout orientation="vertical">
   <DockLayout class="species-detail-title-layout" backgroundColor="#795548" stretchLastChild="true">
-    <Label class="species-detail-title" color="#ffffff" dock="right" text="&#xf00d;" class="fa" margin="5" (tap)="_routerExtensions.back()"></Label>
-    <Label textAlignment="center" class="species-detail-title h1" color="#ffffff" dock="left" marginLeft="40" marginRight="20" [text]="_formattedTitle" class="action-label"></Label>
+    <Label textAlignment="center" alignSelf="center" textAlignment="center" height="100%" color="#ffffff" dock="right" text="&#xf00d;" class="fa" margin="5" (tap)="_routerExtensions.back()"></Label>
+    <Label textAlignment="center" color="#ffffff" dock="left" marginLeft="40" marginRight="20" [text]="_formattedTitle" class="action-label h2"></Label>
   </DockLayout>
-
-  <Label class="hr-dark"></Label>
 
   <GridLayout horizontalAlignment="center" width="40%" rows="*,*" columns="*, *, *, *, *" >
     <Label text="&#xf002;" textAlignment="center" row="1" col="0" color="yellow" class="fa"></Label>
@@ -20,5 +18,10 @@
     <Label class="hr-dark"></Label>
 
     <label *ngIf="_speciesModel.scientific_name" [text]="_speciesModel.scientific_name"></label>
+
+    <Image *ngIf="_speciesModel.image" [src]="_speciesModel.image" margin="10" height="80vh"></Image>
+
+    <Label class="hr-dark"></Label>
+
   </StackLayout>
 </ScrollView>

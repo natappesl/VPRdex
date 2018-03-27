@@ -17,6 +17,12 @@ export class SearchDetailComponent implements OnInit {
 
 	onTap($event) {
 		console.log(this.speciesModel.name);
-		this._routerExtensions.navigate(["/species"], { queryParams: this.speciesModel })
+		this._routerExtensions.navigate(["/species"], {
+			queryParams: this.speciesModel,
+			transition: {
+				name: "slideTop",
+				duration: 200,
+				curve: "easeIn"
+	} })
 	}
 }
