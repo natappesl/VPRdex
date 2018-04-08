@@ -11,6 +11,7 @@ import 'rxjs/add/observable/of';
 import * as listView from "tns-core-modules/ui/list-view";
 import { Subscriber } from 'rxjs/Subscriber';
 import { Subscription } from 'rxjs/Subscription';
+import {aws} from '../../services/AWS-S3';
 
 @Component ({
   selector: "catalog",
@@ -24,12 +25,13 @@ export class CatalogComponent {
   list: listView.ListView;
   results$: Observable<SpeciesModel[]>;
   results: SpeciesModel[];
-  constructor(public _searchService: SearchService, private _page: Page) {
+  constructor(public _searchService: SearchService, public AWSS3: aws, private _page: Page) {
   }
 
   ngOnInit() {
     this.list = this._page.getViewById('list');
     this.results$ = this._searchService.searchResults.asObservable();
+    this.AWSS3.downloadAll();
   }
 
   onItemTap() {

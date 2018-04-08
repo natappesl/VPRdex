@@ -9,6 +9,16 @@
 		"id": "org.nativescript.VPRdex",
 		"tns-android": {
 			"version": "3.4.1"
+		},
+		"nodeify": {
+			"package-dependencies": {
+				"aws-sdk": [
+					{
+						"xml/browser_parser": "xml/node_parser",
+						"lib/node_loader": "lib/browser_loader"
+					}
+				]
+			}
 		}
 	},
 	"dependencies": {
@@ -21,8 +31,11 @@
 		"@angular/platform-browser": "^5.2.6",
 		"@angular/platform-browser-dynamic": "^5.2.6",
 		"@angular/router": "^5.2.6",
+		"aws-sdk": "^2.222.1",
 		"font-awesome": "^4.7.0",
+		"lodash": "^4.17.5",
 		"nativescript-angular": "~5.2.0",
+		"nativescript-nodeify": "^0.7.0",
 		"nativescript-theme-core": "~1.0.4",
 		"reflect-metadata": "~0.1.8",
 		"rxjs": "~5.5.2",

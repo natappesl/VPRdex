@@ -4,6 +4,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { SearchService } from "./services/search.service";
+import {aws} from "./services/AWS-S3";
 
 import * as dockModule from "tns-core-modules/ui/layouts/dock-layout";
 import * as buttonModule from "tns-core-modules/ui/button";
@@ -38,7 +39,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
         AppComponent,
         ...navigatableComponents
     ],
-    providers: [SearchService],
+    providers: [SearchService,aws],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
