@@ -1,19 +1,23 @@
 import { Injectable } from "@angular/core";
 import * as fs from "tns-core-modules/file-system";
 require('nativescript-nodeify');
-//import * as AWS from "aws-sdk";
-//import S3 = require('aws-sdk/clients/s3');
+import * as AWS from "aws-sdk";
+var CryptoJS = require("crypto-js");
 
-import AWS = require('aws-sdk');
-//AWS.config.loadFromPath('./aws-credentials.json');
+// Decrypt 
+var bytes  = CryptoJS.AES.decrypt('U2FsdGVkX19YCaCNV5FHM0yCpkYyYlQTJ7ffvnasME3VvaZIdlAvd+FGprYEmc1q', 'All this does is stop bots from spam downloading our database');
+var aKI = bytes.toString(CryptoJS.enc.Utf8);
+bytes  = CryptoJS.AES.decrypt('U2FsdGVkX1+oti7CzBX4FhdK6czxvVQYv5SYIzSR+1O39Tddd+hoYnnH0tZ/L/SErM+phsncocetesUFC8YIXA==', 'All this does is stop bots from spam downloading our database');
+var sAK = bytes.toString(CryptoJS.enc.Utf8);
 
 AWS.config.update({
-    accessKeyId: "replaceme",
-    secretAccessKey: "replaceme"
+    accessKeyId: aKI,
+    secretAccessKey: sAK
 });
 console.log('aws config updated');
 
 var s3 = new AWS.S3();
+
 var params = {
   Bucket: 'natappdata',
   Prefix: 'json/'
