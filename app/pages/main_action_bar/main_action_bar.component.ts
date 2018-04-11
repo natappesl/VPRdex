@@ -37,9 +37,9 @@ export class MainActionBarComponent implements AfterViewInit {
     let searchBar = <TextField> this._page.getViewById("main-search-bar");
     if (searchBar) {
       this._searchService.search(searchBar.text);
-      let homeTabView = <TabView> this._page.getViewById('home-tab-view');
-      if (homeTabView) homeTabView.selectedIndex = 1;
-      else this._routerExtensions.navigate(['home', { outlets: { catalogoutlet: 'catalog', aboutoutlet: 'about' } }], { queryParams: { jumpToCatalog: true } });
+      this._routerExtensions.navigate(['home', { outlets: { catalogoutlet: 'catalog', aboutoutlet: 'about' } }], { queryParams: { jumpToCatalog: true }, clearHistory: true });
+      if (this._routerExtensions.router.isActive('home', false)) {
+      }
     }
     this.showSearch = !this.showSearch;
   }
