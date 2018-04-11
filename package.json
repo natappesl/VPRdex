@@ -9,28 +9,43 @@
 		"id": "org.nativescript.VPRdex",
 		"tns-android": {
 			"version": "3.4.1"
+		},
+		"nodeify": {
+			"package-dependencies": {
+				"aws-sdk": [
+					{
+						"xml/browser_parser": "xml/node_parser",
+						"lib/node_loader": "lib/browser_loader"
+					}
+				]
+			}
 		}
 	},
 	"dependencies": {
-		"@angular/animations": "^5.2.6",
-		"@angular/common": "^5.2.6",
-		"@angular/compiler": "^5.2.6",
-		"@angular/core": "^5.2.6",
-		"@angular/forms": "^5.2.6",
-		"@angular/http": "^5.2.6",
-		"@angular/platform-browser": "^5.2.6",
-		"@angular/platform-browser-dynamic": "^5.2.6",
-		"@angular/router": "^5.2.6",
+		"@angular/animations": "^5.2.9",
+		"@angular/common": "^5.2.9",
+		"@angular/compiler": "^5.2.9",
+		"@angular/core": "^5.2.9",
+		"@angular/forms": "^5.2.9",
+		"@angular/http": "^5.2.9",
+		"@angular/platform-browser": "^5.2.9",
+		"@angular/platform-browser-dynamic": "^5.2.9",
+		"@angular/router": "^5.2.9",
+		"aws-sdk": "^2.222.1",
+		"crypto-js": "^3.1.9-1",
 		"font-awesome": "^4.7.0",
+		"lodash": "^4.17.5",
 		"nativescript-angular": "~5.2.0",
+		"nativescript-nodeify": "^0.7.0",
 		"nativescript-theme-core": "~1.0.4",
 		"reflect-metadata": "~0.1.8",
-		"rxjs": "~5.5.2",
+		"rxjs": "^5.5.8",
 		"tns-core-modules": "^3.4.1",
-		"zone.js": "~0.8.2"
+		"zone.js": "^0.8.26"
 	},
 	"devDependencies": {
-		"@angular/cli": "^1.7.1",
+		"@angular/cli": "^1.7.4",
+		"@types/node": "^9.6.2",
 		"babel-traverse": "6.4.5",
 		"babel-types": "6.4.5",
 		"babylon": "6.4.5",
