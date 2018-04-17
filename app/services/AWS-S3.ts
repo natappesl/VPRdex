@@ -4,7 +4,7 @@ require('nativescript-nodeify');
 import * as AWS from "aws-sdk";
 var CryptoJS = require("crypto-js");
 
-// Decrypt 
+//Below is simple key encryption to keep away the most simple of GitHub bots from getting the read-only s3 keys 
 var bytes  = CryptoJS.AES.decrypt('U2FsdGVkX19YCaCNV5FHM0yCpkYyYlQTJ7ffvnasME3VvaZIdlAvd+FGprYEmc1q', 'All this does is stop bots from spam downloading our database');
 var aKI = bytes.toString(CryptoJS.enc.Utf8);
 bytes  = CryptoJS.AES.decrypt('U2FsdGVkX1+oti7CzBX4FhdK6czxvVQYv5SYIzSR+1O39Tddd+hoYnnH0tZ/L/SErM+phsncocetesUFC8YIXA==', 'All this does is stop bots from spam downloading our database');
@@ -16,6 +16,7 @@ AWS.config.update({
 });
 console.log('AWS config updated');
 
+//S3 variable creation MUST come after updating the config, otherwise it will not work
 var s3 = new AWS.S3();
 
 var params = {
@@ -23,23 +24,20 @@ var params = {
   //Prefix: 'json/'
 };
 
+// Easy access for necessary paths
 var documents = fs.knownFolders.documents();
-// console.log("documents:" +JSON.stringify(documents));
-// console.log("documents path:" +documents.path);
-
 var dataPath = fs.path.join(documents.path, "app/data/")
 var dataFolder = fs.Folder.fromPath(dataPath);
-// var exists = fs.File.exists(JSONpath);
-// console.log("exists: " + exists);
-var dataPath_json = fs.path.join(dataPath, "json");
+var dataPath_json = fs.path.join(dataPath, "json"); //JSON files go here
 var dataFolder_json = fs.Folder.fromPath(dataPath_json);
-var dataPath_files = fs.path.join(dataPath, "files");
+var dataPath_files = fs.path.join(dataPath, "files"); //Pictures go here
 var dataFolder_files = fs.Folder.fromPath(dataPath_files);
 
-var currentData = {};
+var currentData = {}; //Populated with current data, then used to prevent downloading redundant data
 currentData["json/"] =true;
 currentData["files/"] =true;
 
+// Populate currentData in the json folder
 dataFolder_json.getEntities()
     .then(function (entities) {
         // entities is array with the document's files and folders.
@@ -52,6 +50,7 @@ dataFolder_json.getEntities()
         console.log("fs error" + error.toString());
     });
 
+// Populate currentData in the files folder
 dataFolder_files.getEntities()
     .then(function (entities) {
         entities.forEach(function (entity) {
@@ -69,20 +68,13 @@ export class aws{
         //console.log('aws constructor called\n');
     }
 
+    //Function that downloads any JSON files on the database that do not exist locally
     downloadAll(){
-        console.log("downloadAll()");
-
-        // console.log("Printing local data: ");
-        // for (var v in currentData){
-        //     console.log(v.toString());
-        // }
-
         s3.listObjects(params, function(err, data) {
-            console.log("listObjects");
             if (err) console.log(err.toString(), err.stack.toString()); // an error occurred
             else{
+                //Check if each database object exists locally
                 for (var i in data.Contents){
-                    //console.log(data.Contents[i].Key);
                     if(currentData[data.Contents[i].Key]){
                         //console.log("File already exists!")
                     }
@@ -105,7 +97,6 @@ export class aws{
                                     writeFile.writeText(JSON.stringify(getData.Body))
                                     .then(function () {
                                         // Succeeded writing to the file.
-                                        //console.log("File write success")
                                     }, function (error) {
                                         // Failed to write to the file.
                                         console.log("File write error: ");
@@ -116,7 +107,6 @@ export class aws{
                         });
                     }
                 }
-                //console.log(JSON.stringify(data));           // successful response/
             }     
         });
     }
