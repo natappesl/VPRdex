@@ -28,8 +28,6 @@ export class SearchService {
         var dataFolder_json = fs.Folder.fromPath(dataPath_json);
         let jsonDataTemp = {};
         dataFolder_json.eachEntity(function (entity) {
-            //console.log(entity.name);
-
             try {
                 let path = fs.path.join(Constants.SPECIES_FOLDER_PATH, entity.name);
                 let file = fs.File.fromPath(path);
@@ -39,8 +37,6 @@ export class SearchService {
                 console.error("Error loading species data! Error: \n" + error);
                 console.log(entity.name);
             }
-
-            // Return true to continue, or return false to stop the iteration.
             return true;
         });        
 
@@ -51,11 +47,12 @@ export class SearchService {
         this._results = new Array<SpeciesModel>({});
         this.searchResults = new BehaviorSubject<Array<SpeciesModel>>(this._results);
         this.search();
-
     }
+
     public get lastQuery(): string {
         return this._lastQuery;
     }
+
     public search(query?: string): Observable<Array<SpeciesModel>> {
         this._lastQuery = query || "";
         this._results.length = 0;
@@ -63,7 +60,7 @@ export class SearchService {
         if (this._jsonData) {
             for (var v in this._jsonData){
                 let sp = this._jsonData[v];
-                if (sp.name && sp.name.includes(this._lastQuery)) {
+                if (sp.name && (sp.name.includes(this._lastQuery) || sp.tags.includes(this._lastQuery))) {
                     this._results.push(new SpeciesModel(sp.imageURL,sp.name,sp.scientificName,sp.overview,sp.behavior,sp.habitat,sp.size,sp.conservationStatus,sp.type,sp.tags,sp.references));
                 }
             }
