@@ -72,11 +72,10 @@ export class aws{
     downloadAll(){
         console.log("downloadAll()");
 
-        console.log("Printing local data: ");
-        for (var v in currentData)
-        {
-            console.log(v.toString());
-        }
+        // console.log("Printing local data: ");
+        // for (var v in currentData){
+        //     console.log(v.toString());
+        // }
 
         s3.listObjects(params, function(err, data) {
             console.log("listObjects");
@@ -85,7 +84,7 @@ export class aws{
                 for (var i in data.Contents){
                     //console.log(data.Contents[i].Key);
                     if(currentData[data.Contents[i].Key]){
-                        console.log("File already exists!")
+                        //console.log("File already exists!")
                     }
                     else{
                         console.log(data.Contents[i].Key + " does not exist, writing...")
@@ -106,7 +105,7 @@ export class aws{
                                     writeFile.writeText(JSON.stringify(getData.Body))
                                     .then(function () {
                                         // Succeeded writing to the file.
-                                        console.log("File write success")
+                                        //console.log("File write success")
                                     }, function (error) {
                                         // Failed to write to the file.
                                         console.log("File write error: ");

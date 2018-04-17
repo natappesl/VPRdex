@@ -1,14 +1,15 @@
 export class SpeciesModel {
   constructor(
-      public id?: string,
+      public imageURL?: string,
       public name?: string,
-      public aliases?: string,
-      public image?: string,
       public scientificName?: string,
+      public overview?: string,
+      public behavior?: string,
+      public habitat?: string,
+      public size?: string,
+      public conservationStatus?: string,
       public type?: string,
       public tags?: string,
-      public overview?: string,
-      public habitat?: string,
       public references?: string[]) {
   }
 }
