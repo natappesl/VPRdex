@@ -60,7 +60,7 @@ export class SearchService {
         if (this._jsonData) {
             for (var v in this._jsonData){
                 let sp = this._jsonData[v];
-                if (sp.name && (sp.name.includes(this._lastQuery) || sp.tags.includes(this._lastQuery))) {
+                if (sp.name && (sp.name.includes(this._lastQuery) || sp.tags.includes(this._lastQuery) || sp.type.includes(this._lastQuery))) {
                     this._results.push(new SpeciesModel(sp.imageURL,sp.name,sp.scientificName,sp.overview,sp.behavior,sp.habitat,sp.size,sp.conservationStatus,sp.type,sp.tags,sp.references));
                 }
             }

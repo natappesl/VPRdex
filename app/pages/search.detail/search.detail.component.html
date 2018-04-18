@@ -1,5 +1,5 @@
 <GridLayout rows="*" columns="50, *" width="100%" height="50" (tap)="onTap($event)" >
-    <Image *ngIf="speciesModel.imageURL"
+    <Image *ngIf="speciesModel.imageURL" loadMode="async"
     row="0" col="0" class="thumb-image"
     [src]="speciesModel.imageURL" stretch="aspectFit">
     </Image>
