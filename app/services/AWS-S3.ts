@@ -4,7 +4,7 @@ require('nativescript-nodeify');
 import * as AWS from "aws-sdk";
 var CryptoJS = require("crypto-js");
 
-// Decrypt 
+// Decrypt
 var bytes  = CryptoJS.AES.decrypt('U2FsdGVkX19YCaCNV5FHM0yCpkYyYlQTJ7ffvnasME3VvaZIdlAvd+FGprYEmc1q', 'All this does is stop bots from spam downloading our database');
 var aKI = bytes.toString(CryptoJS.enc.Utf8);
 bytes  = CryptoJS.AES.decrypt('U2FsdGVkX1+oti7CzBX4FhdK6czxvVQYv5SYIzSR+1O39Tddd+hoYnnH0tZ/L/SErM+phsncocetesUFC8YIXA==', 'All this does is stop bots from spam downloading our database');
@@ -89,12 +89,12 @@ export class aws{
                     }
                     else{
                         console.log(data.Contents[i].Key + " does not exist, writing...")
-                        
+
                         var getParams = {
                             Bucket: "natappdata",
                             Key: data.Contents[i].Key
                         };
-                        
+
                         s3.getObject(getParams, function(err, getData) {
                             if (err) console.log(err.toString(), err.stack.toString()); // an error occurred
                             else{
@@ -118,7 +118,7 @@ export class aws{
                     }
                 }
                 //console.log(JSON.stringify(data));           // successful response/
-            }     
+            }
         });
     }
 }
