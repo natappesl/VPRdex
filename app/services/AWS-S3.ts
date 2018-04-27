@@ -89,7 +89,7 @@ export class aws{
                         s3.getObject(getParams, function(err, getData) {
                             if (err) console.log(err.toString(), err.stack.toString()); // an error occurred
                             else{
-                                console.log('getParams.Key: '+ getParams.Key);
+                                //console.log('getParams.Key: '+ getParams.Key);
                                 if (getData.ContentType == "application/json")
                                 {
                                     //console.log((getData.Body));           // successful response
@@ -99,10 +99,10 @@ export class aws{
                                     console.log("writeFile: " + writeFile.path);
                                     writeFile.writeText(getData.Body.toString())
                                     .then(function () {
+                                        // Succeeded writing to the file.
                                         // writeFile.readText().then (result => {
                                         //     console.log ("file content: " + JSON.stringify(result));
                                         // })
-                                        // Succeeded writing to the file.
                                     }, function (error) {
                                         // Failed to write to the file. 
                                         console.log("File write error: ");
