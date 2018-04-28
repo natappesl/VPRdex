@@ -24,8 +24,8 @@ export class SearchService {
     public readonly searchResults: BehaviorSubject<Array<SpeciesModel>>;
 
     constructor() {
-        var dataPath_json = fs.path.join(fs.knownFolders.documents().path, "app/data/json");
-        var dataFolder_json = fs.Folder.fromPath(dataPath_json);
+        let dataPath_json = fs.path.join(fs.knownFolders.documents().path, "app/data/json");
+        let dataFolder_json = fs.Folder.fromPath(dataPath_json);
         let jsonDataTemp = {};
         dataFolder_json.eachEntity(function (entity) {
             try {
@@ -59,7 +59,7 @@ export class SearchService {
         let types = ["mammals","mammal","plants","plant","birds","bird","branchiopoda","branchiopod","branchio"];
 
         if (this._jsonData) {
-            for (var v in this._jsonData){
+            for (let v in this._jsonData){
                 let sp = this._jsonData[v];
                 if ((sp.name && sp.name.includes(this._lastQuery)) || (sp.tags && sp.tags.includes(this._lastQuery)) || (sp.type && sp.type.includes(this._lastQuery)) ) {
                     this._results.push(new SpeciesModel(sp.imageURL,sp.name,sp.scientificName,sp.overview,sp.behavior,sp.habitat,sp.size,sp.conservationStatus,sp.type,sp.tags,sp.references));
@@ -72,9 +72,9 @@ export class SearchService {
                 console.log("query: " + this._lastQuery);
                 console.log("stringArr: " + stringArr);
                 
-                for (var v in this._jsonData){
+                for (let v in this._jsonData){
                     let typeQuery = "-1"
-                    for (var qs in stringArr){
+                    for (let qs in stringArr){
                         let queryPiece = stringArr[qs].toLowerCase();
                         //If one of the queries is a type, first add all species of that type to the list
                         //console.log ("indexOf "+queryPiece+": "+types.indexOf(queryPiece.toLowerCase()));
@@ -82,7 +82,7 @@ export class SearchService {
                             //console.log("Type query detected: "+queryPiece);
                             typeQuery = queryPiece;
                             let sp = this._jsonData[v];
-                            for (var sp_property_iterator in sp){
+                            for (let sp_property_iterator in sp){
                                 let sp_property = sp[sp_property_iterator];
                                 //console.log(sp_property);
                                 if (sp_property.length>2 && sp_property.toLowerCase().includes(queryPiece)){
@@ -92,13 +92,13 @@ export class SearchService {
                             }
                         }
                     }
-                    for (var qs in stringArr){
+                    for (let qs in stringArr){
                         let queryPiece = stringArr[qs].toLowerCase();
                         //In the case of no type query, we just search through all of the properties and add species that include any of the queries
                         if (typeQuery=="-1"){
                             console.log("No type query detected");
                             let sp = this._jsonData[v];
-                            for (var sp_property_iterator in sp){
+                            for (let sp_property_iterator in sp){
                                 let sp_property = sp[sp_property_iterator];
                                 //console.log(sp_property);
                                 if (sp_property.length>2 && sp_property.toLowerCase().includes(queryPiece)){
@@ -110,10 +110,10 @@ export class SearchService {
                         //In the case of a type query, we search through the already added species and remove ones that do not include the keywords of the other queries
                         if (typeQuery!="-1" && queryPiece!=typeQuery){
                             //console.log("Type query detected");
-                            for (var testSpecies_iter = 0; testSpecies_iter<this._results.length; testSpecies_iter++){
+                            for (let testSpecies_iter = 0; testSpecies_iter<this._results.length; testSpecies_iter++){
                                 let testSpecies = this._results[testSpecies_iter];
-                                var keepBool = false;
-                                for (var sp_property_iterator in testSpecies){
+                                let keepBool = false;
+                                for (let sp_property_iterator in testSpecies){
                                     let sp_property = testSpecies[sp_property_iterator];
                                     //console.log(sp_property);
                                     if (sp_property.length>2 && sp_property.toLowerCase().includes(queryPiece)){
