@@ -10,8 +10,9 @@
 4. In VC2017 terminal: "npm install -g nativescript"
 5. Open a Command Prompt somewhere that doesn't require admin privileges (Users\<Username>\Documents for example), or use the VC2017 Terminal to cd to that folder
 7. In that terminal: "git clone <This Repo's Copy Link>"
-
+8. Add the created folder to your VC2017 Workspace
 ### Debugging:
-1. npm install
-2. tns init
-3. tns debug android
+1. Download and Install an Android Emulator (can be done as a standalone or through Android Studio SDK Manager): https://visualstudio.microsoft.com/vs/msft-android-emulator/
+2. In VC2017 terminal: "npm install"
+3. In VC2017 terminal: "tns init"
+4. In VC2017 terminal: "tns debug android"
