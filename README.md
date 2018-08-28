@@ -14,7 +14,8 @@
 7. In that terminal: "git clone <This Repo's Copy Link>"
 8. Add the created folder to your VC2017 Workspace
 ##### Debugging Setup:
-1. Download and Install an Android Emulator (can be done as a standalone or through Android Studio SDK Manager): https://visualstudio.microsoft.com/vs/msft-android-emulator/
+1. Download and Install Android Studio: https://developer.android.com/studio/#downloads
+- Todo: SDK mANAGER WALKTHROUGH
 2. In VC2017 terminal: "npm install"
 3. In VC2017 terminal: "tns init"
 4. In VC2017 terminal: "tns debug android"
