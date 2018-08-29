@@ -17,10 +17,10 @@
 1. Download and Install Android Studio: https://developer.android.com/studio/#downloads
 1.1 From inside Android Studio, open the SDK Manager
 1.2 Click the SDK Tools tab and download: 
--- Android SDK Build-Tools, Android Emulator
--- Android SDK Platform-Tools
--- Android SDK Tools
--- Intel x86 Emulator Accelerator (if  available).
+- Android SDK Build-Tools, Android Emulator
+- Android SDK Platform-Tools
+- Android SDK Tools
+- Intel x86 Emulator Accelerator (if  available).
 2. In VC2017 terminal: "npm install"
 3. In VC2017 terminal: "tns init"
 4. In VC2017 terminal: "tns debug android"
