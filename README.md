@@ -18,7 +18,7 @@
 
 - If you do not see the terminal window, you can navigate to it by clicking (on the top navigation bar) View and then Terminal (or simply by pressing the hotkey CTRL + \`)
 
-9. Then type: "git clone '\[This Repo's Copy Link]'"
+9. Then type into terminal: "git clone '\[This Repo's Copy Link]'"
 
  - The link can be found by going to this repo's homepage and clicking the green "Clone or Download" link in the top right and copying that link
   - Replace "\[This Repo's Copy Link]" completely with the repo link, even the brackets, but leave the single quotes
