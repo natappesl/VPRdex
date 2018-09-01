@@ -19,7 +19,7 @@
  
 7. Copy the local address of that location, it should look something like: "C:\Users\<Your Username>\Documents"
 
-8. In the command prompt, type: "cd <the chosen location>"
+8. In the command prompt, type: "cd <The chosen location>"
   
 9. Then type: "git clone <This Repo's Copy Link>"
  - The link can be found by going to this repo's homepage and clicking the green "Clone or Download" link in the top right and copying that link
