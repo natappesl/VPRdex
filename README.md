@@ -1,9 +1,7 @@
 # VPRdex
-
-### Installation on Windows 10
-  Installing dependencies and environment can be done through the Android Development Studio and its provided SDK Manager, but this guide will assume you are startinhg on a fresh Windows Machine. Instructions are brief and more or less universal so you should be able to install on unix-based systems, if you know what you are doing (and you should if you're running one). Remember, your are expected to troubleshoot your own problems on this project and Google is your friend. 
-  
- - **If you encounter an issue, once solved, please add it to the troubleshooting section or update the instructions according!**
+### Installation
+Follow the instructions at the link provided, and if you don't understand a step, try googling it.
+https://docs.nativescript.org/start/ns-setup-win#system-requirements
   
 ##### Environment and Team Server Setup
 1. Download and install VS Code 2017 (VC2017), default settings (unless you know that you need to change a specific setting): https://code.visualstudio.com/download
