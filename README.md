@@ -11,16 +11,20 @@
 3. Download and install Git, default settings: https://git-scm.com/downloads
 3.1 Make sure to finish installing VSCode first. If the next button at the "default editor screen is greyed out, try restarting the git installer.
 4. Restart VC2017 and then in its terminal type: "npm install -g nativescript"
-
-5. Open a Command Prompt somewhere that doesn't require admin privileges (Users\<Username>\Documents for example), or use the VC2017 Terminal to cd to that folder
-7. In that terminal: "git clone <This Repo's Copy Link>"
+ - The terminal can be found on the bottom portion of the welcome screen, there should be a list of tabs saying: "PROBLEMS  OUTPUT  TERMINAL"
+5. Open a Command Prompt
+6. Choose a the location that the local App files will be stored, it needs to be somewhere that doesn't require admin privileges 
+ - Your Documents folder is a good choice: "C:\Users\<Your Username>\Documents"
+6.1. Copy the local address of that location, it should look something like: "C:\Users\<Your Username>\Documents"
+6.2. In the command prompt, type: "cd <the copied location>"
+6.3. Then type: "git clone <This Repo's Copy Link>"
  - The link can be found by going to this repo's homepage and clicking the green "Clone or Download" link in the top right and copying that link
-  - Replace "<This Repo's Copy Link>" completely with the repo link
-8. Add the created folder to your VC2017 Workspace
+  - Replace "<This Repo's Copy Link>" completely with the repo link, even the karats
+7. Add the created folder to your VC2017 Workspace
 ##### Debugging Setup:
 1. Download and Install Android Studio, default settings: https://developer.android.com/studio/#downloads
-1.1 From inside Android Studio, open the SDK Manager
-1.2 Click the SDK Tools tab and download: 
+1.1. From inside Android Studio, open the SDK Manager
+1.2. Click the SDK Tools tab and download: 
 - Android SDK Build-Tools, Android Emulator
 - Android SDK Platform-Tools
 - Android SDK Tools
