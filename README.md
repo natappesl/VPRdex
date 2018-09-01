@@ -10,9 +10,12 @@
 2. Download and install NodeJS (LTS if possible), default settings: https://nodejs.org/en/
 3. Download and install Git, default settings: https://git-scm.com/downloads
 3.1 Make sure to finish installing VSCode first. If the next button at the "default editor screen is greyed out, try restarting the git installer.
-4. In VC2017 terminal: "npm install -g nativescript"
+4. Restart VC2017 and then in its terminal type: "npm install -g nativescript"
+
 5. Open a Command Prompt somewhere that doesn't require admin privileges (Users\<Username>\Documents for example), or use the VC2017 Terminal to cd to that folder
 7. In that terminal: "git clone <This Repo's Copy Link>"
+ - The link can be found by going to this repo's homepage and clicking the green "Clone or Download" link in the top right and copying that link
+  - Replace "<This Repo's Copy Link>" completely with the repo link
 8. Add the created folder to your VC2017 Workspace
 ##### Debugging Setup:
 1. Download and Install Android Studio, default settings: https://developer.android.com/studio/#downloads
