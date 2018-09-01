@@ -6,19 +6,16 @@
  - **If you encounter an issue, once solved, please add it to the troubleshooting section or update the instructions according!**
   
 ##### Environment and Team Server Setup
-1. Download and install VS Code 2017 (VC2017): https://code.visualstudio.com/download
-- Default settings generally work
-2. Download and install NodeJS (LTS if possible): https://nodejs.org/en/
-- Default settings generally work
-3. Download and install Git: https://git-scm.com/downloads
-- Default settings generally work
+1. Download and install VS Code 2017 (VC2017), default settings: https://code.visualstudio.com/download
+2. Download and install NodeJS (LTS if possible), default settings: https://nodejs.org/en/
+3. Download and install Git, default settings: https://git-scm.com/downloads
+3.1 Make sure to finish installing VSCode first. If the next button at the "default editor screen is greyed out, try restarting the git installer.
 4. In VC2017 terminal: "npm install -g nativescript"
 5. Open a Command Prompt somewhere that doesn't require admin privileges (Users\<Username>\Documents for example), or use the VC2017 Terminal to cd to that folder
 7. In that terminal: "git clone <This Repo's Copy Link>"
 8. Add the created folder to your VC2017 Workspace
 ##### Debugging Setup:
-1. Download and Install Android Studio: https://developer.android.com/studio/#downloads
-- Default settings generally work
+1. Download and Install Android Studio, default settings: https://developer.android.com/studio/#downloads
 1.1 From inside Android Studio, open the SDK Manager
 1.2 Click the SDK Tools tab and download: 
 - Android SDK Build-Tools, Android Emulator
