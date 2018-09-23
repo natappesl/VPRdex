@@ -1,10 +1,8 @@
 import { Injectable, OnInit } from "@angular/core";
 import { Http, Headers, Response, URLSearchParams } from "@angular/http";
-import { Observable } from "rxjs/Observable";
-import { BehaviorSubject } from "rxjs//BehaviorSubject";
+import { Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { SpeciesModel } from "../models/species.model";
-import "rxjs/add/operator/catch";
-import "rxjs/add/operator/map";
 
 import * as fs from "tns-core-modules/file-system";
 import * as Constants from '../constants';

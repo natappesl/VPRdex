@@ -14,10 +14,8 @@ import * as segmentedBarModule from "tns-core-modules/ui/segmented-bar";
 import * as Constants from './constants';
 import { registerElement } from "nativescript-angular/element-registry";
 import { routes, navigatableComponents } from "./app.routing";
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/catch";
-import "rxjs/add/operator/map";
-import 'rxjs/add/observable/of';
+
+import { Observable } from "rxjs";
 
 declare var GMSServices: any;
 

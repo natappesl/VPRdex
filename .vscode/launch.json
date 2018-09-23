@@ -13,8 +13,8 @@
             "appRoot": "${workspaceRoot}",
             "sourceMaps": true,
             "watch": true,
+            "stopOnEntry": true,
             "tnsArgs": [
-                "--clean"
             ]
         },
         {
@@ -24,7 +24,9 @@
             "platform": "android",
             "appRoot": "${workspaceRoot}",
             "sourceMaps": true,
-            "watch": true
+            "watch": true,
+            "tnsArgs": [
+            ]
         }
     ]
 }

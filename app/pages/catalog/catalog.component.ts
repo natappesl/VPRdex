@@ -2,15 +2,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { SpeciesModel } from "../../models/species.model";
 import { Page } from "tns-core-modules/ui/page";
-import { Subject } from 'rxjs/Subject';
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/catch";
-import "rxjs/add/operator/map";
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/observable/of';
+import { Subject } from 'rxjs';
+import { Observable } from "rxjs";
 import * as listView from "tns-core-modules/ui/list-view";
-import { Subscriber } from 'rxjs/Subscriber';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscriber } from 'rxjs';
+import { Subscription } from 'rxjs';
 import {aws} from '../../services/AWS-S3';
 
 @Component ({
